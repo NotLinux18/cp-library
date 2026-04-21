@@ -1,6 +1,6 @@
 #define int long long
 #define MAX_N (200'000 + 7)
-constexpr mod = 1'000'000'007;
+constexpr int mod = 1'000'000'007;
 struct Mint {
     int x;
 

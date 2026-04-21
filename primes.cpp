@@ -7,7 +7,7 @@ void precalc_primes(){
 	        lp[i] = i;
 	        primes.push_back(i);
 	    }
-	    for(int j = 0; i * pr[j] < MAX_N; j++){
+	    for(int j = 0; i * primes[j] < MAX_N; j++){
 	        lp[i * primes[j]] = primes[j];
 	        if(primes[j] == lp[i]){
 	            break;

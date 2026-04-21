@@ -1,9 +1,10 @@
+#define all(x) x.begin() , x.end()
 struct DSU{
 	vector<int> par , sz;
 	void init(int x){
 		x += 3;
 		par.resize(x);
-		iota(all(par) , x);
+		iota(all(par) , 0);
 		sz.assign(x , 1);
 	}
 	int find(int a){

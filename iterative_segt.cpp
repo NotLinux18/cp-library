@@ -1,3 +1,4 @@
+#define sz(x) (int)x.size()
 struct SumInfo{
     long long sum;
     SumInfo(long long sum_ = 0):sum(sum_) {}
