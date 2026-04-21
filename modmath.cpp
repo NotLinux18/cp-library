@@ -47,7 +47,7 @@ struct Mint {
         return *this = *this * o;
     }
 
-    friend Mint fastpow(int a , int b){
+    friend Mint fastpow(Mint a , int b){
         Mint ret = 1;
         while(b){
             if(b&1)ret = ret * a;
