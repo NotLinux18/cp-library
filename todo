@@ -1,0 +1,21 @@
++ iterative segt
+- implicit segt
+- lazy segt
+- persistent segment tree
++ dsu
+- dsu rollback
+- dsu with potential
+- kmp
+- z
+- string hash
++ mod math (modint , ncr etc.)
++ primes
+- treap
+- matching
+- flow
+- lca , binary lift
+- hld
+- fenwick tree
+- fft
+- li chao tree
+- geometry (cross product , convex hull etc.)
