@@ -7,7 +7,7 @@
 - dsu with potential
 - kmp
 - z
-- string hash
++ string hash
 + mod math (modint , ncr etc.)
 + primes
 - treap
