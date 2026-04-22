@@ -2,14 +2,11 @@
 struct StringHash{
     static const int mod1 = 1000000007;
     static const int mod2 = 1000000009;
-    int base;
+    static int base;
 
     vector<int> h1, h2, p1, p2;
 
-    StringHash(){
-        mt19937 rnghash(chrono::steady_clock::now().time_since_epoch().count());
-        base = uniform_int_distribution<int>(256, StringHash::mod1 - 2)(rnghash);
-    }
+    StringHash(){}
 
     void build(const string& s){
         int n = (int)s.size();
@@ -37,3 +34,5 @@ struct StringHash{
         return {x1, x2};
     }
 };
+mt19937 rnghash(chrono::steady_clock::now().time_since_epoch().count());
+int StringHash::base = uniform_int_distribution<int>(256, StringHash::mod1 - 2)(rnghash);
