@@ -2,7 +2,7 @@
 struct StringHash{
     static const int mod1 = 1000000007;
     static const int mod2 = 1000000009;
-    static int base;
+    int base;
 
     vector<int> h1, h2, p1, p2;
 
