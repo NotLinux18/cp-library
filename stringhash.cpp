@@ -5,6 +5,7 @@ struct StringHash{
     static int base1 , base2;
     vector<int> h1, h2, p1, p2;
     StringHash(){}
+    StringHash(string& s){build(s);}
     void build(const string& s){
         int n = (int)s.size();
         h1.assign(n + 1, 0);
