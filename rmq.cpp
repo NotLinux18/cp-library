@@ -17,12 +17,12 @@ struct RMQ{
 
     void build(const vector<T>& v){
         a=v,n=sz(a);
-        B=max(1,__lg(max(1,n))/2), nb=(n+B-1)/B;
+        B=max(1ll,__lg(max(1ll,n))/2), nb=(n+B-1)/B;
         msk.assign(n,0), bm.assign(nb,-1);
 
         for(int i=0;i<n;i++){
             int o=i%B,bs=i-o;
-            unsigned long long m=msk[r]&(~0ULL<<(l%B));
+            unsigned long long m=o?msk[i-1]:0;
             while(m){
                 int p=63-__builtin_clzll(m), j=bs+p;
                 if(bet(j,i))break;
@@ -47,7 +47,7 @@ struct RMQ{
     }
 
     int in(int l,int r){
-        unsigned int m=msk[r]&(~0ULL<<(l%B));
+        unsigned long long m=msk[r]&(~0ULL<<(l%B));
         return r-r%B+__builtin_ctzll(m);
     }
 
