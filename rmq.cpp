@@ -3,7 +3,7 @@ template<class T,bool MX=0>
 struct RMQ{
     int n,B,nb,K;
     vector<T>a;
-    vector<unsigned int> msk;
+    vector<unsigned long long> msk;
     vector<int> lg,bm;
     vector<vector<int>> st;
 
@@ -22,7 +22,7 @@ struct RMQ{
 
         for(int i=0;i<n;i++){
             int o=i%B,bs=i-o;
-            unsigned int m=o?msk[i-1]:0;
+            unsigned long long m=msk[r]&(~0ULL<<(l%B));
             while(m){
                 int p=63-__builtin_clzll(m), j=bs+p;
                 if(bet(j,i))break;

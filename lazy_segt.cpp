@@ -66,8 +66,8 @@ struct Lazy_Segt{
         }
         push(x);
         int mid = (lx + rx) >> 1;
-        if(p <= mid)set_modify(x<<1, lx, mid, p, value);
-        else set_modify(x<<1|1, mid + 1, rx, p, value);
+        if(p <= mid)set_modify(x<<1, lx, mid, p, v);
+        else set_modify(x<<1|1, mid + 1, rx, p, v);
         pull(x);
     }
     void set_modify(int p, const Info& v){
