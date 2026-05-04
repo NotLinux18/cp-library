@@ -1,4 +1,3 @@
-#define MAX_N (200'000 + 7)
 vector<int>primes , lp(MAX_N);
 void precalc_primes(){
 	for(int i=2; i < MAX_N; i++) {// linear sieve

@@ -1,5 +1,3 @@
-#define int long long
-#define MAX_N (200'000 + 7)
 struct Mint {
     static constexpr int mod = 1'000'000'007;
     int x;
@@ -14,34 +12,14 @@ struct Mint {
     Mint& operator-=(const Mint& o){return *this = *this - o;}
     friend Mint operator*(const Mint& l, const Mint& r){return (int)l.x * r.x;}
     Mint& operator*=(const Mint& o){return *this = *this * o;}
-    friend Mint fastpow(Mint a , int b){
-        Mint ret = 1;
-        while(b){
-            if(b&1)ret = ret * a;
-            a = a * a;
-            b >>= 1;
-        }
-        return ret;
-    }
-    friend Mint fastpow(Mint a , Mint mb){
-        long long b = mb.x;
-        Mint ret = 1;
-        while(b){
-            if(b&1)ret = ret * a;
-            a = a * a;
-            b >>= 1;
-        }
-        return ret;
-    }
+    friend Mint fastpow(Mint a,int b)
+    {Mint ret=1;while(b>>=1){if(b&1)ret=ret*a;a=a*a;}return ret;}
+    friend Mint fastpow(Mint a,Mint b)
+    {Mint ret=1;while(b.x>>=1){if(b.x&1)ret=ret*a;a=a*a;}return ret;}
     friend Mint operator/(const Mint& l, const Mint& r){return l * fastpow(r , mod-2);}
     Mint& operator/=(const Mint& o){return *this = *this / o;}
     friend ostream& operator<<(ostream& os, const Mint& o){return os << o.x;}
-    friend istream& operator>>(istream& in, Mint& o){
-        long long v;
-        in >> v;
-        o = Mint(v);
-        return in;
-    }
+    friend istream& operator>>(istream& in, Mint& o){int v;in >> v;o = Mint(v);return in;}
 };
 Mint fact[MAX_N] = {1}, invfact[MAX_N] = {1};
 Mint ncr(int n, int r){return n < r || r < 0 ? 0 : fact[n] * invfact[r] * invfact[n - r];}

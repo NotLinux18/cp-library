@@ -1,4 +1,3 @@
-#define sz(x) (int)x.size()
 struct SumInfo{
     long long sum;
     SumInfo(long long sum_ = 0):sum(sum_) {}
@@ -20,14 +19,14 @@ struct Iterative_Segt{
         for(int i = 0; i < sz(a); i++) t[tree_size + i] = Info(a[i]);
         for(int i = tree_size - 1; i >= 1; i--)t[i] = merge(t[i<<1], t[i<<1|1]);
     }
-    void set_modify(int p, const int& value){
+    void set_modify(int p, const Info& value){
         p += tree_size;
-        t[p] = Info(value);
+        t[p] = value;
         for(p >>= 1; p >= 1; p >>= 1)t[p] = merge(t[p<<1], t[p<<1|1]);
     }
-    void add_modify(int p, const int& value){
+    void add_modify(int p, const Info& value){
         p += tree_size;
-        t[p] = merge(t[p], Info(value));
+        t[p] = merge(t[p], value;);
         for(p >>= 1; p >= 1; p >>= 1)t[p] = merge(t[p<<1], t[p<<1|1]);
     }
     Info query(int l, int r){ // [l, r]

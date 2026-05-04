@@ -1,3 +1,7 @@
+- links
+- genel full info setup
+- debug functions for all of them
+
 + iterative segt
 - implicit segt
 - lazy segt
@@ -19,3 +23,6 @@
 - fft
 - li chao tree
 - geometry (cross product , convex hull etc.)
+- interval set
+- k smallest elements set
+- offline connectivity 

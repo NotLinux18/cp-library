@@ -1,4 +1,3 @@
-#define int long long
 struct StringHash{
     static const int mod1 = 1000000007;
     static const int mod2 = 1000000009;
@@ -29,4 +28,4 @@ struct StringHash{
 };
 mt19937 rnghash(chrono::steady_clock::now().time_since_epoch().count());
 int StringHash::base1 = uniform_int_distribution<int>(256, StringHash::mod1 - 2)(rnghash);
-int StringHash::base2 = uniform_int_distribution<int>(256, StringHash::mod1 - 2)(rnghash);
+int StringHash::base2 = uniform_int_distribution<int>(256, StringHash::mod2 - 2)(rnghash);
