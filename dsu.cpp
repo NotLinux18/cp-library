@@ -1,3 +1,4 @@
+// https://github.com/NotLinux18/cp-library/blob/main/dsu.cpp
 struct DSU{
 	vector<int> par , sz;
 	void init(int x){

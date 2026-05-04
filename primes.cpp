@@ -1,3 +1,4 @@
+// https://github.com/NotLinux18/cp-library/blob/main/primes.cpp
 vector<int>primes , lp(MAX_N);
 void precalc_primes(){
 	for(int i=2; i < MAX_N; i++) {// linear sieve

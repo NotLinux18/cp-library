@@ -1,10 +1,4 @@
-struct SumInfo{
-    long long sum;
-    SumInfo(long long sum_ = 0):sum(sum_) {}
-    friend SumInfo merge(const SumInfo& a, const SumInfo& b){
-        return SumInfo(a.sum + b.sum);
-    }
-};
+// https://github.com/NotLinux18/cp-library/blob/main/iterative_segt.cpp
 template<typename Info>
 struct Iterative_Segt{
     int tree_size;
@@ -26,7 +20,7 @@ struct Iterative_Segt{
     }
     void add_modify(int p, const Info& value){
         p += tree_size;
-        t[p] = merge(t[p], value;);
+        t[p] = merge(t[p], value);
         for(p >>= 1; p >= 1; p >>= 1)t[p] = merge(t[p<<1], t[p<<1|1]);
     }
     Info query(int l, int r){ // [l, r]

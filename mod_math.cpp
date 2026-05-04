@@ -1,3 +1,4 @@
+// https://github.com/NotLinux18/cp-library/blob/main/mod_math.cpp
 struct Mint {
     static constexpr int mod = 1'000'000'007;
     int x;

@@ -1,3 +1,4 @@
+// https://github.com/NotLinux18/cp-library/blob/main/string_hash.cpp
 struct StringHash{
     static const int mod1 = 1000000007;
     static const int mod2 = 1000000009;

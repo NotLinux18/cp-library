@@ -1,45 +1,4 @@
-struct AddTag{
-    long long add;
-    AddTag(long long add_ = 0):add(add_) {}
-    void apply(const AddTag& other){
-        add += other.add;
-    }
-};
-struct SumInfo{
-    long long sum;
-    int len;
-    SumInfo():sum(0), len(0) {}
-    SumInfo(long long x):sum(x), len(1) {}
-    SumInfo(long long sum_, int len_):sum(sum_), len(len_) {}
-    void apply(const AddTag& tag){
-        sum += tag.add * len;
-    }
-    friend SumInfo merge(const SumInfo& a, const SumInfo& b){
-        return SumInfo(a.sum + b.sum, a.len + b.len);
-    }
-};
-struct MaxInfo{
-    long long maxi;
-    MaxInfo():maxi(-INF){}
-    MaxInfo(long long maxi_):maxi(maxi_){}
-    void apply(const AddTag& tag){
-        maxi += tag.add;
-    }
-    friend MaxInfo merge(const MaxInfo& a, const MaxInfo& b){
-        return MaxInfo(max(a.maxi , b.maxi));
-    }
-};
-struct MinInfo{
-    long long mini;
-    MaxInfo():mini(INF){}
-    MaxInfo(long long mini_):mini(mini_){}
-    void apply(const AddTag& tag){
-        mini += tag.add;
-    }
-    friend MaxInfo merge(const MaxInfo& a, const MaxInfo& b){
-        return MaxInfo(max(a.mini , b.mini));
-    }
-};
+// https://github.com/NotLinux18/cp-library/blob/main/lazy_segt.cpp
 template<typename Info, typename Tag>
 struct Lazy_Segt{
     int tree_size;
