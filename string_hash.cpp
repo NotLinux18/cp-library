@@ -31,3 +31,27 @@ struct StringHash{
 mt19937 rnghash(chrono::steady_clock::now().time_since_epoch().count());
 int StringHash::base1 = uniform_int_distribution<int>(256, StringHash::mod1 - 2)(rnghash);
 int StringHash::base2 = uniform_int_distribution<int>(256, StringHash::mod2 - 2)(rnghash);
+bool hash_less(const string& a,const string& b){ // a < b lexicographically
+    StringHash A(a),B(b);
+    int l=0,r=min(sz(a),sz(b));
+    while(l<r){
+        int m=(l+r+1)>>1;
+        if(A.get(0,m-1)==B.get(0,m-1))l=m;
+        else r=m-1;
+    }
+    if(l==min(sz(a),sz(b)))return sz(a)<sz(b);
+    return a[l]<b[l];
+}
+/*
+string s = "abacaba";
+
+StringHash sh(s);
+
+cout << (sh.get(0, 2) == sh.get(4, 6)) << endl;
+cout << (sh.get(0, 1) == sh.get(2, 3)) << endl;
+
+auto h = sh.get(1, 3);
+
+vector<string> v = {"banana","apple","band"};
+sort(all(v),hash_less);
+*/

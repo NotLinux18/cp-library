@@ -19,3 +19,12 @@ struct DSU{
 		par[a] = b;
 	}
 };
+/*
+DSU d;
+d.init(n);
+
+d.merge(0, 2);
+d.merge(1, 2);
+
+cout << (d.find(0) == d.find(1)) << endl;
+*/

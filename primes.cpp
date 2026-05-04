@@ -12,3 +12,4 @@ void precalc_primes(){
 	    }
 	}
 }
+// lp[i] = lowest prime factor of i

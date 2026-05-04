@@ -10,8 +10,8 @@ struct RMQ{
     bool bet(int i,int j){
         if(i<0)return 0;
         if(j<0)return 1;
-        if constexpr(MX)return a[j]<a[i];
-        else return a[i]<a[j];
+        if constexpr(MX)return a[i]>=a[j]; // tie's prioritize left
+        else return a[i]<=a[j];            // to make it right change >=/<= to >/<
     }
     int best(int i,int j){return bet(i,j)?i:j;}
 
@@ -67,3 +67,12 @@ struct RMQ{
         return a[idx(l,r)];
     }
 };
+/*
+vector<int> a = {5, 2, 7, 1, 9};
+
+RMQ<int> rmq; // RMQ<int,1> for max
+rmq.build(a);
+
+cout << rmq.query(1, 3) << endl;
+cout << rmq.idx(1, 3) << endl;// leftmost minimum
+*/

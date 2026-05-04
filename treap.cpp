@@ -127,3 +127,34 @@ struct Treap{
         return L>R?0:sum_le(R)-sum_less(L);
     }
 };
+/*
+Treap<200005> tr;
+
+tr.insert(5);
+tr.insert(2);
+tr.insert(5);
+tr.insert(10);
+
+cout << tr.size() << endl;            // 4
+cout << tr.empty() << endl;           // 0
+
+cout << tr.find(5) << endl;           // 1
+cout << tr.count(5) << endl;          // 2
+
+cout << tr.kth(0) << endl;            // 2
+cout << tr.kth(1) << endl;            // 5
+cout << tr.kth(3) << endl;            // 10
+
+cout << tr.order_of_key(6) << endl;    // count < 6  -> 3
+cout << tr.order_of_key_le(5) << endl; // count <= 5 -> 3
+
+cout << tr.sum_less(6) << endl;        // 2+5+5 = 12
+cout << tr.sum_le(5) << endl;          // 2+5+5 = 12
+cout << tr.range_sum(3, 10) << endl;   // 5+5+10 = 20
+
+tr.erase(5);                           // erase one 5
+cout << tr.count(5) << endl;           // 1
+
+tr.erase_all(5);                       // erase all 5s
+cout << tr.count(5) << endl;           // 0
+*/

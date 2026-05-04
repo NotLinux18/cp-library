@@ -1,8 +1,6 @@
-- add usage
-
 + rmq
 + iterative segt
-- implicit segt
++ lazy implicit segt
 + lazy segt
 - persistent segment tree
 + dsu

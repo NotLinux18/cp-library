@@ -58,3 +58,19 @@ struct MinInfo{
 MinInfo merge(const MinInfo& a, const MinInfo& b){
     return MinInfo(min(a.x, b.x));
 };
+/*
+Use with segtrees:
+
+SumInfo -> query .x gives sum
+MaxInfo -> query .x gives max
+MinInfo -> query .x gives min
+
+AddTag(x)          -> range add x
+SetTag(x)          -> range set x
+AddSetTag::Add(x)  -> range add x
+AddSetTag::Set(x)  -> range set x
+
+Lazy_Segt<SumInfo, AddTag> st;       // range add, range sum
+Lazy_Segt<MaxInfo, SetTag> st;       // range set, range max
+Lazy_Segt<MinInfo, AddSetTag> st;    // range add/set, range min
+*/

@@ -1,4 +1,14 @@
 // https://github.com/NotLinux18/cp-library/blob/main/mod_math.cpp
+template<typename T, typename U>
+T fastpow(T a, U b){
+    T ret = 1;
+    while(b){
+        if(b & 1)ret *= a;
+        a *= a;
+        b >>= 1;
+    }
+    return ret;
+}
 struct Mint {
     static constexpr int mod = 1'000'000'007;
     int x;
@@ -13,10 +23,6 @@ struct Mint {
     Mint& operator-=(const Mint& o){return *this = *this - o;}
     friend Mint operator*(const Mint& l, const Mint& r){return (int)l.x * r.x;}
     Mint& operator*=(const Mint& o){return *this = *this * o;}
-    friend Mint fastpow(Mint a,int b)
-    {Mint ret=1;while(b){if(b&1)ret=ret*a;a=a*a;b>>=1;}return ret;}
-    friend Mint fastpow(Mint a,Mint b)
-    {Mint ret=1;while(b){if(b.x&1)ret=ret*a;a=a*a;b.x>>=1;}return ret;}
     friend Mint operator/(const Mint& l, const Mint& r){return l * fastpow(r , mod-2);}
     Mint& operator/=(const Mint& o){return *this = *this / o;}
     friend ostream& operator<<(ostream& os, const Mint& o){return os << o.x;}
@@ -30,3 +36,16 @@ void precalc_math(){
     invfact[MAX_N - 1] = 1 / fact[MAX_N - 1];
     for(int i = MAX_N - 2; i >= 0; i--)invfact[i] = (i + 1) * invfact[i + 1];
 }
+/*
+precalc_math();
+
+Mint a = 5, b = 3;
+
+cout << a + b << endl;
+cout << a * b << endl;
+cout << a / b << endl;
+
+cout << fastpow(2ll, 10) << endl;
+cout << ncr(5, 2) << endl;
+cout << bars(5, 3) << endl;
+*/

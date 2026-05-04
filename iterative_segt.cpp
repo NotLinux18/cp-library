@@ -33,3 +33,17 @@ struct Iterative_Segt{
         return merge(left, right);
     }
 };
+/*
+vector<int> a = {1, 2, 3, 4, 5};
+
+Iterative_Segt<SumInfo> st;
+st.build(a);
+
+cout << st.query(1, 3).x << endl;
+
+st.set_modify(2, SumInfo(10));
+cout << st.query(1, 3).x << endl;
+
+st.add_modify(1, SumInfo(5));
+cout << st.query(0, 4).x << endl;
+*/

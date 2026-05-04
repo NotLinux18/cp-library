@@ -74,3 +74,15 @@ struct Lazy_Segt{
         set_modify(1, 0, tree_size - 1, p, v);
     }
 };
+/*
+vector<int> a = {1, 2, 3, 4, 5};
+
+Lazy_Segt<SumInfo, AddTag> st;
+st.build(a);
+
+st.range_apply(1, 3, AddTag(10));
+cout << st.query(0, 4).x << endl;
+
+st.set_modify(2, SumInfo(7));
+cout << st.query(1, 3).x << endl;
+*/
