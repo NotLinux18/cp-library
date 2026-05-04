@@ -8,9 +8,10 @@ struct Iterative_Segt{
         while(tree_size < n) tree_size <<= 1;
         t.assign(2 * tree_size, Info());
     }
-    void build(const vector<int>& a){
+    template<typename T>
+    void build(const vector<T>& a){
         init(sz(a));
-        for(int i = 0; i < sz(a); i++) t[tree_size + i] = Info(a[i]);
+        for(int i = 0; i < sz(a); i++)t[tree_size + i] = Info(a[i]);
         for(int i = tree_size - 1; i >= 1; i--)t[i] = merge(t[i<<1], t[i<<1|1]);
     }
     void set_modify(int p, const Info& value){

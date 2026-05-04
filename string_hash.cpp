@@ -5,7 +5,7 @@ struct StringHash{
     static int base1 , base2;
     vector<int> h1, h2, p1, p2;
     StringHash(){}
-    StringHash(string& s){build(s);}
+    StringHash(const string& s){build(s);}
     void build(const string& s){
         int n = (int)s.size();
         h1.assign(n + 1, 0);
@@ -20,6 +20,7 @@ struct StringHash{
         }
     }
     pair<int,int> get(int l, int r){ // inclusive
+        if(l > r)return {0 , 0};
         int x1 = (h1[r + 1] - 1LL * h1[l] * p1[r - l + 1]) % mod1;
         if(x1 < 0)x1 += mod1;
         int x2 = (h2[r + 1] - 1LL * h2[l] * p2[r - l + 1]) % mod2;

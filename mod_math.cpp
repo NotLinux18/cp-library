@@ -14,9 +14,9 @@ struct Mint {
     friend Mint operator*(const Mint& l, const Mint& r){return (int)l.x * r.x;}
     Mint& operator*=(const Mint& o){return *this = *this * o;}
     friend Mint fastpow(Mint a,int b)
-    {Mint ret=1;while(b>>=1){if(b&1)ret=ret*a;a=a*a;}return ret;}
+    {Mint ret=1;while(b){if(b&1)ret=ret*a;a=a*a;b>>=1;}return ret;}
     friend Mint fastpow(Mint a,Mint b)
-    {Mint ret=1;while(b.x>>=1){if(b.x&1)ret=ret*a;a=a*a;}return ret;}
+    {Mint ret=1;while(b){if(b.x&1)ret=ret*a;a=a*a;b.x>>=1;}return ret;}
     friend Mint operator/(const Mint& l, const Mint& r){return l * fastpow(r , mod-2);}
     Mint& operator/=(const Mint& o){return *this = *this / o;}
     friend ostream& operator<<(ostream& os, const Mint& o){return os << o.x;}

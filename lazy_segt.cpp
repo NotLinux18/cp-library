@@ -10,7 +10,8 @@ struct Lazy_Segt{
         t.assign(2 * tree_size, Info());
         lazy.assign(2 * tree_size, Tag());
     }
-    void build(const vector<int>& a){
+    template<typename T>
+    void build(const vector<T>& a){
         init(sz(a));
         for(int i = 0; i < sz(a); i++)t[tree_size + i] = Info(a[i]);
         for(int i = tree_size - 1; i >= 1; i--)t[i] = merge(t[i<<1], t[i<<1|1]);
@@ -57,7 +58,7 @@ struct Lazy_Segt{
         if(l > r)return Info();
         return query(1, 0, tree_size - 1, l, r);
     }
-    void set_modify(int x, int lx, int rx, int p, const Tag& v){
+    void set_modify(int x, int lx, int rx, int p, const Info& v){
         if(lx == rx){
             t[x] = v;
             lazy[x] = Tag();
@@ -69,7 +70,7 @@ struct Lazy_Segt{
         else set_modify(x<<1|1, mid + 1, rx, p, value);
         pull(x);
     }
-    void set_modify(int p, const Tag& v){
+    void set_modify(int p, const Info& v){
         set_modify(1, 0, tree_size - 1, p, v);
     }
 };

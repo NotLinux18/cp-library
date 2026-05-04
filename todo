@@ -1,10 +1,9 @@
-- links
-- genel full info setup
-- debug functions for all of them
+- add usage
 
++ rmq
 + iterative segt
 - implicit segt
-- lazy segt
++ lazy segt
 - persistent segment tree
 + dsu
 - dsu rollback
@@ -14,15 +13,17 @@
 + string hash
 + mod math (modint , ncr etc.)
 + primes
-- treap
++ treap
+- implicit treap
 - matching
 - flow
-- lca , binary lift
-- hld
-- fenwick tree
-- fft
+- fft , ntt
 - li chao tree
 - geometry (cross product , convex hull etc.)
 - interval set
-- k smallest elements set
 - offline connectivity 
+
+TREE
+- lca , binary lift
+- hld
+- centroid
