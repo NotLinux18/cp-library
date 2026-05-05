@@ -4,7 +4,6 @@ using namespace std;
 #define sz(x) (int)x.size()
 #define all(x) x.begin() , x.end()
 #define INF (1'000'000'000'000'000'000 + 7)
-#define inf (1'000'000'000 + 7)
 #define MAX_N (200'000 + 7)
 void solve(){
     
