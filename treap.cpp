@@ -1,17 +1,24 @@
 // https://github.com/NotLinux18/cp-library/blob/main/treap.cpp
-template<int32_t N>
 struct Treap{
-    int32_t rt=0,p=0,l[N],r[N],sz[N],cnt[N];
-    uint32_t pri[N],sd=chrono::steady_clock::now().time_since_epoch().count();
-    int key[N],sum[N];
+    int32_t rt=0;
+    vector<int32_t> l,r,sz,cnt;
+    vector<uint32_t> pri;
+    vector<int> key,sum;
+    uint32_t sd=chrono::steady_clock::now().time_since_epoch().count();
+
+    Treap(){
+        l={0},r={0},sz={0},cnt={0},pri={0},key={0},sum={0}; // dummy node 0
+    }
 
     uint32_t rnd(){return sd^=sd<<13, sd^=sd>>17, sd^=sd<<5;}
     int32_t gs(int32_t x){return x?sz[x]:0;}
     int sm(int32_t x){return x?sum[x]:0;}
 
     int32_t nw(int x){
-        ++p; l[p]=r[p]=0; sz[p]=cnt[p]=1;
-        key[p]=sum[p]=x; pri[p]=rnd(); return p;
+        int32_t p=sz.size();
+        l.push_back(0),r.push_back(0),sz.push_back(1),cnt.push_back(1);
+        pri.push_back(rnd()),key.push_back(x),sum.push_back(x);
+        return p;
     }
 
     void pull(int32_t x){
@@ -126,9 +133,18 @@ struct Treap{
     int range_sum(int L,int R){
         return L>R?0:sum_le(R)-sum_less(L);
     }
+
+    int nodes(){
+        return sz.size()-1;
+    }
+
+    void clear(){
+        rt=0;
+        l={0},r={0},sz={0},cnt={0},pri={0},key={0},sum={0};
+    }
 };
 /*
-Treap<200005> tr;
+Treap tr;
 
 tr.insert(5);
 tr.insert(2);
@@ -157,4 +173,7 @@ cout << tr.count(5) << endl;           // 1
 
 tr.erase_all(5);                       // erase all 5s
 cout << tr.count(5) << endl;           // 0
+
+cout << tr.nodes() << endl;            // number of created distinct-value nodes
+tr.clear();                            // reset treap
 */

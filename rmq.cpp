@@ -10,8 +10,8 @@ struct RMQ{
     bool bet(int i,int j){
         if(i<0)return 0;
         if(j<0)return 1;
-        if constexpr(MX)return a[i]>=a[j]; // tie's prioritize left
-        else return a[i]<=a[j];            // to make it right change >=/<= to >/<
+        if constexpr(MX)return a[i]!=a[j]?a[i]>a[j]:i<j;    // tie's prioritize left
+        else return a[i]!=a[j]?a[i]<a[j]:i<j;               // to make it right change i<j to i<=j     
     }
     int best(int i,int j){return bet(i,j)?i:j;}
 
