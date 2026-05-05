@@ -1,17 +1,22 @@
-+ rmq
-+ iterative segt
-+ lazy implicit segt
-+ lazy segt
+- to write
++ written
+# stress tested
+
+# template
+# rmq
+# iterative segt
+# lazy implicit segt
+# lazy segt
 - persistent segment tree
-+ dsu
+# dsu
 - dsu rollback
 - dsu with potential
 - kmp
 - z
-+ string hash
-+ mod math (modint , ncr etc.)
-+ primes
-+ treap
+# string hash
+# mod math (modint , ncr etc.)
+# primes
+# treap
 - implicit treap
 - matching
 - flow
